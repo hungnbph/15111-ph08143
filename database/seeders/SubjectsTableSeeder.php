@@ -14,8 +14,8 @@ class SubjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        if(DB::table('sv')->count()===0){
-        	DB::table('sv')->insert([
+        if(DB::table('subject')->count()===0){
+        	DB::table('subject')->insert([
                 [
         		'name'=>'nguyen van a',       		
         		'is_active'=>true,
