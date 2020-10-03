@@ -1,18 +1,28 @@
-@extends('student-layout.mater')
+@extends('admin-layout.master')
 @section('title', 'title list')
-@section('header', 'header lisr')
 
 @section('content')
-    <table border='1' class='table'>
-        <thead>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Address</th>
-            <th>Active</th>
-        </thead>
-        <tbody>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">list</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-12">
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Age</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Address</th>
+      <th scope="col">Active</th>
+    </tr>
+  </thead>
+  <tbody>
             @foreach($students as $student)
                 <tr>
                     <td>{{ $student->name }}</td>
@@ -27,12 +37,30 @@
                             Nothing
                         @endif
                     </td>
-                    <td>{{ $student->address }}</td>
+                    <td>{{ $student->adress }}</td>
                     <td>{{ $student->is_active == 1 ? 'Yes' : 'No' }}</td>
                 </tr>
             @endforeach
         </tbody>
-    </table>
-    @section('footer', footerlist)
+
+</table>
+
+
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+   
+
+            
+          <!-- /.col-md-6 -->
+
+            
+    <!-- /.content -->
+  </div>
+    
     @endsection
     
