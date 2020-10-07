@@ -49,12 +49,13 @@ class StudentController extends Controller
      */
 
      //show su dung phuong thuc GET, Route name la student.show
-    public function show( $student)
+    public function show(Student $student)
     {
-        // nếu chỉ truyền vào $student -> nhận được id của student
-        //  $studentObjEloquentModel = Student::table('student');
-        // $studentObjQueryBuilder = DB::table('students')->find($student);
-        // dd($studentObjEloquentModel->name,)
+        $students = Student::find($student);
+        $studentsquery = DB::table('students')->find($student);
+        $studentObj = $student;
+        return view('students.show', ['student' => $student]);
+
 
 
         // nếu truyền Student $student -> thực hiện truy vấn tìm Student có id
@@ -69,7 +70,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        return view('students.edit', ['student' => $student]);
     }
 
     /**
@@ -81,6 +82,16 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
+        $student->name = $request->name;
+
+        // Thuc hien goi phuong thuc save() de luu du lieu
+        $student->save();
+
+        // Cach 2: $student->update(['name' => $request->name]);
+        // Hoac $student->update([$request->all()])
+        // Khong can save
+
+        return redirect()->route('students.index');
         //
     }
 
@@ -92,6 +103,12 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        if($student) {
+            $student->delete(); // tra ve ket qua true/false
+        }
+
+        // Cach 2: Student::destroy($student->id); // tra ve so luong ban ghi bi xoa
+        // Redirect ve danh sach (co thuc hien truy van lay ds moi)
+        return redirect()->route('students.index');
     }
 }
