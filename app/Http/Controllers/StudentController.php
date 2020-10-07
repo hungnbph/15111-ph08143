@@ -83,6 +83,11 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
     {
         $student->name = $request->name;
+        $student->phone = $request->phone;
+        $student->age = $request->age;
+        $student->adress = $request->adress;
+        $student->gender = $request->gender;
+        $student->is_active = $request->is_active;
 
         // Thuc hien goi phuong thuc save() de luu du lieu
         $student->save();
