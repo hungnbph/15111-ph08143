@@ -27,7 +27,7 @@ method="POST"
   </div>
   <div class="form-group">
     <label for="address">Address</label>
-    <input type="text" class="form-control" name="adress" id="address" value="{{$student->adress}}">
+    <input type="text" class="form-control" name="adress" id="adress" value="{{$student->adress}}">
   </div>
 
 
