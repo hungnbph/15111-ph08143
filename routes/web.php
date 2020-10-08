@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/post', function () {
+    $post = \App\Models\Post::find(2);
+    $comment = \App\Models\Comment::find(1);
+    dd($comment->post);
+});
