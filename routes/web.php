@@ -18,6 +18,13 @@ use App\Http\Controllers\SubjectController;
 Route::get('/', function () {
     return view('welcome');
 });
+<<<<<<< dbnew
+Route::get('/post', function () {
+    $post = \App\Models\Post::find(2);
+    $comment = \App\Models\Comment::find(1);
+    dd($comment->post);
+});
+=======
 
 Route::get('/admin', function () {
     return view('test-admin');
@@ -89,3 +96,4 @@ Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.inde
     
 //     })->name('post-login');
 
+>>>>>>> master
