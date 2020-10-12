@@ -14,7 +14,7 @@ method="POST"
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="name">name</label>
-      <input type="email" class="form-control" id="name" name="name"  value="{{$student->name}}" >
+      <input type="text" class="form-control" id="name" name="name"  value="{{$student->name}}" >
     </div>
     <div class="form-group col-md-6">
       <label for="phone">phone</label>

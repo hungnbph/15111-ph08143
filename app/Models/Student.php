@@ -18,4 +18,7 @@ class Student extends Model
         'adress',
         'is_active'
     ];
+    public function posts() {
+        return $this->hasMany(Post::class, 'student_id', 'id');
+}
 }
