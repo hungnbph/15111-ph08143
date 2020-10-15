@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use DB;
 
-class StudentController extends Controller
+class postController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        $students = Student::paginate(5);
+        $posts = Post::all();
+        $posts = Post::paginate(5);
         //hoặc $students = Student::orderBy('id', 'desc')->get();
-        return view('students.list', ['students'=>$students]);
+        return view('posts.listPost', ['posts'=>$posts]);
     }
 
     /**
@@ -28,7 +28,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-    
+        //
     }
 
     /**
@@ -45,76 +45,67 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
-     //show su dung phuong thuc GET, Route name la student.show
-    public function show(Student $student)
+    public function show(Post $post)
     {
-        $students = Student::find($student);
-        $studentsquery = DB::table('students')->find($student);
-        $studentObj = $student;
-        return view('students.show', ['student' => $student]);
-
-
-
-        // nếu truyền Student $student -> thực hiện truy vấn tìm Student có id
-        // $studentObj = $student;
+        $posts = Post::find($post);
+        $postQuery = DB::table('posts')->find($post);
+        $postObj = $post;
+        return view('posts.showPost', ['post' => $post]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(Post $post)
     {
-        return view('students.edit', ['student' => $student]);
+        return view('posts.editPost', ['post' => $post]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Post $post)
     {
-        $student->name = $request->name;
-        $student->phone = $request->phone;
-        $student->age = $request->age;
-        $student->adress = $request->adress;
-        $student->gender = $request->gender;
-        $student->is_active = $request->is_active;
+        $post->desc = $request->desc;
+        $post->content = $request->content;
+        $post->image_url = $request->image_url;
+        $post->student_id = $request->student_id;
+        $post->status = $request->status;
 
         // Thuc hien goi phuong thuc save() de luu du lieu
-        $student->save();
+        $post->save();
 
         // Cach 2: $student->update(['name' => $request->name]);
         // Hoac $student->update([$request->all()])
         // Khong can save
-
-        return redirect()->route('students.index');
-        //
+        return redirect()->route('posts.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Student  $student
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Post $post)
     {
-        if($student) {
-            $student->delete(); // tra ve ket qua true/false
+        if($post) {
+            $post->delete(); // tra ve ket qua true/false
         }
 
         // Cach 2: Student::destroy($student->id); // tra ve so luong ban ghi bi xoa
         // Redirect ve danh sach (co thuc hien truy van lay ds moi)
-        return redirect()->route('students.index');
+        return redirect()->route('posts.index');
     }
+    
 }

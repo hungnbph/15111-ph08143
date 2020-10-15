@@ -42,18 +42,16 @@
                     >
                       @csrf
                       <input type='hidden' name='_method' value='DELETE'></input>
-                      <button class="btn btn-danger"  type='submit'>Delete</button>
+                      <button class="btn btn-warning"  type='submit'>Delete</button>
                     </form>
                     <a href="{{ route('students.edit', $student->id) }}">
-                      <button class="btn btn-success" >Edit</button>
+                      <button class="btn btn-warning" >Edit</button>
                     </a></td>
                 </tr>
             @endforeach
-            <tr><td colspan="7">{{$students->links()}}</td></tr>
         </tbody>
 
 </table>
 
     
     @endsection
-    
