@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\postController;
 
 
 Route::get('/', function () {
@@ -25,6 +26,7 @@ Route::resource('students', StudentController::class);
 // ->only(['index]); khi chi dung ham so nao do
 // ->except(['create', ])
 Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
+Route::resource('posts', postController::class);
 
 // Route::get('/students', function(){
 //     //sử dụng query builder

@@ -2,7 +2,7 @@
 
 @section('title', 'Edit student')
 
-@section('content-header', "Edit student  $student->name")
+@section('ten', "Edit student  $student->name")
 @section('content')
 <form
 method="POST"
