@@ -4,11 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\postController;
+use App\Http\Controllers\categoryController;
+use App\Http\Controllers\commentController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 Route::get('/post', function () {
     $post = \App\Models\Post::find(2);
     $comment = \App\Models\Comment::find(1);
@@ -21,12 +20,14 @@ Route::get('/admin', function () {
 });
 
 // tao route resource cho student controoler
-
+Route::resource('/', StudentController::class);
 Route::resource('students', StudentController::class);
 // ->only(['index]); khi chi dung ham so nao do
 // ->except(['create', ])
 Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.index');
 Route::resource('posts', postController::class);
+Route::resource('comments', commentController::class);
+Route::resource('categories', categoryController::class);
 
 // Route::get('/students', function(){
 //     //sử dụng query builder
@@ -86,3 +87,6 @@ Route::resource('posts', postController::class);
 //         return redirect()->route('get-login');
     
 //     })->name('post-login');
+Route::get('login',[LoginController::class, 'index'])->name('get-login');
+Route::get('post-login',[LoginController::class, 'postLogin'])->name('post-login');
+
