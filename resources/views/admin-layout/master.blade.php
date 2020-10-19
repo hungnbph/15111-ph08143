@@ -197,6 +197,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
 
+          <!-- category  -->
           
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
@@ -208,7 +209,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{ url('categories')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
                   danh sach Categories
@@ -224,7 +225,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               
             </ul>
           </li>
-
+          
+ 
+       <!-- post -->
 
 
           <li class="nav-item has-treeview menu-open">
@@ -253,6 +256,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               
             </ul>
           </li>
+
+
+          <!-- user -->
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -263,7 +269,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="{{ url('users')}}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
                   danh sach
@@ -279,6 +285,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
               
             </ul>
           </li>
+
+            <!-- comment -->
+
+           <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Comment
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('comments') }}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                  danh sach Coment
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>thêm comment</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

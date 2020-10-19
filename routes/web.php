@@ -6,6 +6,7 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\postController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\commentController;
+use App\Http\Controllers\userController;
 
 
 Route::get('/post', function () {
@@ -28,6 +29,7 @@ Route::get('subjects', [SubjectController::class, 'index'])->name('subjects.inde
 Route::resource('posts', postController::class);
 Route::resource('comments', commentController::class);
 Route::resource('categories', categoryController::class);
+Route::resource('users', userController::class);
 
 // Route::get('/students', function(){
 //     //sử dụng query builder
