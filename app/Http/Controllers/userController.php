@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Comment;
-use Illuminate\Http\Request;
-use DB;
 
-class commentController extends Controller
+use Illuminate\Http\Request;
+use App\Models\User;
+
+class userController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,7 @@ class commentController extends Controller
      */
     public function index()
     {
-        $comments = Comment::all();
-        $comments = Comment::paginate();
-        return view('comments.listComment',['comments'=> $comments]);
-
+        //
     }
 
     /**
@@ -47,13 +44,9 @@ class commentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Comment $comment)
+    public function show($id)
     {
-        $comment = Comment::find($comment);
-        $commentQuery = DB::table('comments')->find($comment);
-        $commentObj=$comment;
-        return view('comments.showComment' , ['comment'=>$comment]);
-
+        //
     }
 
     /**
@@ -85,14 +78,8 @@ class commentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy($id)
     {
-        if($comment) {
-            $comment->delete(); // tra ve ket qua true/false
-        }
-
-        // Cach 2: Student::destroy($student->id); // tra ve so luong ban ghi bi xoa
-        // Redirect ve danh sach (co thuc hien truy van lay ds moi)
-        return redirect()->route('comments.index');
+        //
     }
 }
